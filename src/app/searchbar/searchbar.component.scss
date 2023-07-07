@@ -1,0 +1,28 @@
+#search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 40px;
+    input {
+        &[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+          }
+          &[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007DFC;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+            &:hover {
+                background-color: #2893ff;
+            }
+          }
+    }
+  }

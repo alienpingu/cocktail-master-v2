@@ -1,0 +1,51 @@
+<section id="list">
+    <div class="flip-card" *ngFor="let item of drinkData; let i = index" [attr.data-index]="i">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h2 class="title">{{item.strDrink}}</h2>
+            <small class="category">{{item.strCategory}}</small>
+
+            <img src="{{item.strDrinkThumb}}" alt="Avatar" style="width:300px;height:300px;">
+          </div>
+          <div class="flip-card-back">
+            <h5>Instructions</h5>
+            <p>{{item.strInstructions.substring(0, 200)}}</p>
+            <table style="width: 100%;">
+                <thead>
+                  <tr>
+                    <th>Ingrediente</th>
+                    <th>Quantità</th>
+                  </tr>
+                 </thead>
+                 <tbody>
+                   <tr>
+                     <td>{{item.strIngredient1}}</td>
+                     <td>{{item.strMeasure1}}</td>
+                   </tr>
+                   <tr>
+                    <td>{{item.strIngredient2}}</td>
+                     <td>{{item.strMeasure2}}</td>
+                   </tr>
+                   <tr>
+                    <td>{{item.strIngredient3}}</td>
+                    <td>{{item.strMeasure3}}</td>
+                   </tr>
+                   <tr>
+                    <td>{{item.strIngredient4}}</td>
+                    <td>{{item.strMeasure4}}</td>
+                   </tr>
+                   <tr>
+                    <td>{{item.strIngredient5}}</td>
+                    <td>{{item.strMeasure5}}</td>
+                   </tr>
+                   <tr>
+                    <td>{{item.strIngredient6}}</td>
+                    <td>{{item.strMeasure6}}</td>
+                   </tr>
+                </tbody>
+              </table>
+              <small>Serve in {{item.strGlass}}</small>
+          </div>
+        </div>
+    </div>
+</section>

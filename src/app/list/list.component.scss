@@ -1,0 +1,88 @@
+#list {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-items: center;
+    margin: 0 1rem;
+    /* Extra small devices (phones, 600px and down) */
+    
+    .flip-card {
+      background-color: transparent;
+      width: 300px;
+      height: 300px;
+      perspective: 1000px;
+      opacity: 1;
+      animation: fadeIn 1s;
+      animation-fill-mode: both;
+      $animation-delay-step: 0.01s;
+      $animation-delay-start: 0s;
+      @for $i from 1 through 25 { // Imposta il numero di .card che desideri
+        &:nth-child(#{$i}) {
+          animation-delay: $animation-delay-start + ($animation-delay-step * $i);
+        }
+      }
+    }
+    
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      border: 1px solid black;
+
+    }
+    
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+    
+    .flip-card-front {
+      background-color: #bbb;
+      color: black;
+  
+      .title {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 6px 0;
+        background-color: #fff;
+        text-align: center;
+      }
+      .category {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        margin: 0;
+        padding: 6px 0;
+        background-color: #fff;
+        text-align: center;
+      }
+    }
+    
+    .flip-card-back {
+      background-color: #007DFC;
+      color: white;
+      transform: rotateY(180deg);
+    }
+} 
+
+@keyframes fadeIn {
+  from {
+  	opacity: 0;
+  }
+  to {
+ 	opacity: 1;
+  }
+}
